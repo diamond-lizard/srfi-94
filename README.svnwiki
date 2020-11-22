@@ -16,7 +16,7 @@ The infinities introduced by SRFI-70 extend the range of Scheme numerical calcul
 
 The SRFI-77 shotgun approach creates type-restricted variants of all the numerical operations, but does not allow those operations to signal errors when they are forced out of bounds! For instance {{flsqrt}} and {{inexact-sqrt}}:
 
-    Returns the principal square root of z [sic]. For a negative argument, the result may be a NaN, or may be some meaningless flonum.
+Returns the principal square root of {{z}} [sic]. For a negative argument, the result may be a {{NaN}}, or may be some meaningless flonum.
 
 SRFI-77 here misses an opportunity to increase the declarative power of Scheme numerical operations. By the present SRFI making {{real-sqrt}} and {{real-ln}} of negative numbers an error, compilers can deduce that the expressions calculating the inputs to {{real-sqrt}} and {{real-ln}} must return non-negative reals. Similarly, use of the other real-only transcendental functions declares their inputs and outputs to be real.
 
@@ -129,15 +129,15 @@ returns 0 for positive integer n2;
 
 signals an error otherwise.
 ==== procedure: real-expt x1 x2
-Returns x1 raised to the power x2 if that result is a real number; otherwise signals an error.
+Returns {{x1}} raised to the power {{x2}} if that result is a real number; otherwise signals an error.
 
 #+BEGIN_SRC scheme
 (real-expt 0.0 x2)
 #+END_SRC
 
-returns 1.0 for x2 equal to 0.0;
+returns 1.0 for {{x2}} equal to 0.0;
 
-returns 0.0 for positive real x2;
+returns 0.0 for positive real {{x2}};
 
 signals an error otherwise.
 ==== procedure: quo x1 x2
@@ -151,9 +151,9 @@ x2 should be non-zero.
 (mod x1 x2)                     ==> x_m
 #+END_SRC
 
-where n_q is x1/x2 rounded towards zero, 0 < |x_r| < |x2|, 0 < |x_m| < |x2|, x_r and x_m differ from x1 by a multiple of x2, x_r has the same sign as x1, and x_m has the same sign as x2.
+where n_q is x1/x2 rounded towards zero, 0 < |x_r| < |x2|, 0 < |x_m| < |x2|, x_r and x_m differ from {{x1}} by a multiple of {{x2}}, x_r has the same sign as {{x1}}, and x_m has the same sign as {{x2}}.
 
-From this we can conclude that for x2 not equal to 0,
+From this we can conclude that for {{x2}} not equal to 0,
 
 #+BEGIN_SRC scheme
 (= x1 (+ (* x2 (quo x1 x2))
@@ -180,7 +180,7 @@ The specification of two-argument {{atan}} above and the following six procedure
 Additions and changes are marked in red.
 ==== procedure: make-rectangular x1 x2
 ==== procedure: make-polar x3 x4
-These procedures are part of every implementation that supports general complex numbers. Suppose x1, x2, x3, and x4 are real numbers and z is a complex number such that
+These procedures are part of every implementation that supports general complex numbers. Suppose {{x1}}, {{x2}}, {{x3}}, and {{x4}} are real numbers and z is a complex number such that
 
     z = x1 + i x2 = x3 e^i x4
 
@@ -189,11 +189,11 @@ Then
     (make-rectangular x1 x2)               ==> z
     (make-polar x3 x4)                     ==> z
 
-where -pi < x_angle <= pi with x_angle = x4 + 2pi n for some integer n.
+where {{-pi < x_angle <= pi}} with {{x_angle = x4 + 2pi n}} for some integer {{n}}.
 
 If an argument is not real, then these procedures signal an error.
 ==== library procedure: abs x
-For real argument x, {{abs}} returns the absolute value of x; otherwise it signals an error.
+For real argument {{x}}, {{abs}} returns the absolute value of {{x}}; otherwise it signals an error.
 
 #+BEGIN_SRC scheme
 (abs -7)                               ==>  7
