@@ -110,9 +110,9 @@ Although not a type-restricted function, {{ln}} is added as a synonym for {{log}
 ==== procedure: real-acos x
 ==== procedure: real-atan x
 ==== procedure: atan y x
-These procedures are part of every implementation that supports general real numbers; they compute the usual transcendental functions. {{Real-ln}} computes the natural logarithm of x (not the base ten logarithm); {{real-log}} computes the logarithm of x base y, which is (/ (real-ln x) (real-ln y)) If arguments x and y are not both real; or if the correct result would not be real, then these procedures signal an error.
+These procedures are part of every implementation that supports general real numbers; they compute the usual transcendental functions. {{Real-ln}} computes the natural logarithm of {{x}} (not the base ten logarithm); {{real-log}} computes the logarithm of {{x}} base y, which is (/ (real-ln x) (real-ln y)) If arguments {{x}} and {{y}} are not both real; or if the correct result would not be real, then these procedures signal an error.
 ==== procedure: real-sqrt x
-For non-negative real x the result will be its positive square root; otherwise an error will be signaled.
+For non-negative real {{x}} the result will be its positive square root; otherwise an error will be signaled.
 ==== procedure: integer-sqrt n
 For non-negative integer n returns the largest integer whose square is less than or equal to n; otherwise signals an error.
 ==== procedure: integer-log k1 k2
