@@ -228,8 +228,10 @@ These procedures are part of every implementation that supports general complex 
 
 Then
 
-    (make-rectangular x1 x2)               ==> z
-    (make-polar x3 x4)                     ==> z
+<enscript highlight="scheme">
+(make-rectangular x1 x2)               ==> z
+(make-polar x3 x4)                     ==> z
+</enscript>
 
 where {{-pi < x_angle <= pi}} with {{x_angle = x4 + 2pi n}} for some integer {{n}}.
 
