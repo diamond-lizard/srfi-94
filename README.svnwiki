@@ -148,9 +148,9 @@ Returns the largest exact integer whose power of {{k1}} is less than or equal to
 
 Returns {{n1}} raised to the power {{n2}} if that result is an exact integer; otherwise signals an error.
 
-#+BEGIN_SRC scheme
+<enscript highlight="scheme">
 (integer-expt 0 n2)
-#+END_SRC
+</enscript>
 
 returns 1 for {{n2}} equal to 0;
 
@@ -162,9 +162,9 @@ signals an error otherwise.
 
 Returns {{x1}} raised to the power {{x2}} if that result is a real number; otherwise signals an error.
 
-#+BEGIN_SRC scheme
+<enscript highlight="scheme">
 (real-expt 0.0 x2)
-#+END_SRC
+</enscript>
 
 returns 1.0 for {{x2}} equal to 0.0;
 
@@ -182,31 +182,31 @@ signals an error otherwise.
 
 {{x2}} should be non-zero.
 
-#+BEGIN_SRC scheme
+<enscript highlight="scheme">
 (quo x1 x2)                     ==> n_q
 (rem x1 x2)                     ==> x_r
 (mod x1 x2)                     ==> x_m
-#+END_SRC
+</enscript>
 
 where n_q is x1/x2 rounded towards zero, {{0 < |x_r| < |x2|, 0 < |x_m| < |x2|, x_r and x_m}} differ from {{x1}} by a multiple of {{x2}}, {{x_r}} has the same sign as {{x1}}, and {{x_m}} has the same sign as {{x2}}.
 
 From this we can conclude that for {{x2}} not equal to 0,
 
-#+BEGIN_SRC scheme
+<enscript highlight="scheme">
 (= x1 (+ (* x2 (quo x1 x2))
       (rem x1 x2)))
                                   ==>  #t
-#+END_SRC
+</enscript>
 
 provided all numbers involved in that computation are exact.
 
-#+BEGIN_SRC scheme
+<enscript highlight="scheme">
 (quo 2/3 1/5)                          ==>  3
 (mod 2/3 1/5)                  ==>  1/15
 
 (quo .666 1/5)                 ==>  3.0
 (mod .666 1/5)                 ==>  65.99999999999995e-3
-#+END_SRC
+</enscript>
 
 <procedure>ln z</procedure>
 
@@ -241,9 +241,9 @@ If an argument is not real, then these procedures signal an error.
 
 For real argument {{x}}, {{abs}} returns the absolute value of {{x}}; otherwise it signals an error.
 
-#+BEGIN_SRC scheme
+<enscript highlight="scheme">
 (abs -7)                               ==>  7
-#+END_SRC
+</enscript>
 
 <procedure>quotient n1 n2</procedure>
 
@@ -255,31 +255,31 @@ For real argument {{x}}, {{abs}} returns the absolute value of {{x}}; otherwise 
 
 These procedures implement number-theoretic (integer) division. If {{n1}} is not an exact integer, or if {{n2}} is not an exact non-zero integer, an error is signaled. All three procedures return exact integers. If {{n1/n2}} is an integer:
 
-#+BEGIN_SRC scheme
+<enscript highlight="scheme">
 (quotient n1 n2)                   ==> n1/n2
 (remainder n1 n2)                  ==> 0
 (modulo n1 n2)                     ==> 0
-#+END_SRC
+</enscript>
 
 If {{n1/n2}} is not an integer:
 
-#+BEGIN_SRC scheme
+<enscript highlight="scheme">
 (quotient n1 n2)                   ==> n_q
 (remainder n1 n2)                  ==> x_r
 (modulo n1 n2)                     ==> x_m
-#+END_SRC
+</enscript>
 
 where {{n_q}} is {{n1/n2}} rounded towards zero, {{0 < |x_r| < |n2|, 0 < |x_m| < |n2|, x_r}} and {{x_m}} differ from {{n1}} by a multiple of {{n2}}, {{x_r}} has the same sign as {{n1}}, and {{x_m}} has the same sign as {{n2}}.
 
 From this we can conclude that for integers {{n1}} and {{n2}} with {{n2}} not equal to 0,
 
-#+BEGIN_SRC scheme
+<enscript highlight="scheme">
 (= n1 (+ (* n2 (quotient n1 n2))
       (remainder n1 n2)))
                                   ==>  #t
-#+END_SRC
+</enscript>
 
-    #+BEGIN_SRC scheme
+<enscript highlight="scheme">
 (modulo 13 4)                          ==>  1
 (remainder 13 4)                       ==>  1
 
@@ -291,7 +291,7 @@ From this we can conclude that for integers {{n1}} and {{n2}} with {{n2}} not eq
 
 (modulo -13 -4)                        ==>  -1
 (remainder -13 -4)                     ==>  -1
-#+END_SRC
+</enscript>
 === Author
 * Aubrey Jaffer
 * Ported to Chicken Scheme 5 by Sergey Goldgaber
