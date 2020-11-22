@@ -100,24 +100,52 @@ Although not a type-restricted function, {{ln}} is added as a synonym for {{log}
 
 {{Real-log}} returns the logarithm of its second argument using its first argument as the base. {{integer-log}} is the analogous two-argument logarithm function for integers.
 === Specification
-==== procedure: real-exp x
-==== procedure: real-ln x
-==== procedure: real-log y x
-==== procedure: real-sin x
-==== procedure: real-cos x
-==== procedure: real-tan x
-==== procedure: real-asin x
-==== procedure: real-acos x
-==== procedure: real-atan x
-==== procedure: atan y x
+
+<procedure>real-exp x</procedure>
+
+
+<procedure>real-ln x</procedure>
+
+
+<procedure>real-log y x</procedure>
+
+
+<procedure>real-sin x</procedure>
+
+
+<procedure>real-cos x</procedure>
+
+
+<procedure>real-tan x</procedure>
+
+
+<procedure>real-asin x</procedure>
+
+
+<procedure>real-acos x</procedure>
+
+
+<procedure>real-atan x</procedure>
+
+
+<procedure>atan y x</procedure>
+
 These procedures are part of every implementation that supports general real numbers; they compute the usual transcendental functions. {{Real-ln}} computes the natural logarithm of {{x}} (not the base ten logarithm); {{real-log}} computes the logarithm of {{x}} base {{y}}, which is (/ (real-ln x) (real-ln y)) If arguments {{x}} and {{y}} are not both real; or if the correct result would not be real, then these procedures signal an error.
-==== procedure: real-sqrt x
+
+<procedure>real-sqrt x</procedure>
+
 For non-negative real {{x}} the result will be its positive square root; otherwise an error will be signaled.
-==== procedure: integer-sqrt n
+
+<procedure>integer-sqrt n</procedure>
+
 For non-negative integer {{n}} returns the largest integer whose square is less than or equal to {{n}}; otherwise signals an error.
-==== procedure: integer-log k1 k2
+
+<procedure>integer-log k1 k2</procedure>
+
 Returns the largest exact integer whose power of {{k1}} is less than or equal to {{k2}}. If {{k1}} or {{k2}} is not a positive exact integer, then integer-log signals an error.
-==== procedure: integer-expt n1 n2
+
+<procedure>integer-expt n1 n2</procedure>
+
 Returns {{n1}} raised to the power {{n2}} if that result is an exact integer; otherwise signals an error.
 
 #+BEGIN_SRC scheme
@@ -129,7 +157,9 @@ returns 1 for {{n2}} equal to 0;
 returns 0 for positive integer {{n2}};
 
 signals an error otherwise.
-==== procedure: real-expt x1 x2
+
+<procedure>real-expt x1 x2</procedure>
+
 Returns {{x1}} raised to the power {{x2}} if that result is a real number; otherwise signals an error.
 
 #+BEGIN_SRC scheme
@@ -141,9 +171,15 @@ returns 1.0 for {{x2}} equal to 0.0;
 returns 0.0 for positive real {{x2}};
 
 signals an error otherwise.
-==== procedure: quo x1 x2
-==== procedure: rem x1 x2
-==== procedure: mod x1 x2
+
+<procedure>quo x1 x2</procedure>
+
+
+<procedure>rem x1 x2</procedure>
+
+
+<procedure>mod x1 x2</procedure>
+
 {{x2}} should be non-zero.
 
 #+BEGIN_SRC scheme
@@ -171,7 +207,9 @@ provided all numbers involved in that computation are exact.
 (quo .666 1/5)                 ==>  3.0
 (mod .666 1/5)                 ==>  65.99999999999995e-3
 #+END_SRC
-==== procedure: ln z
+
+<procedure>ln z</procedure>
+
 These procedures are part of every implementation that supports general real numbers. {{Ln}} computes the natural logarithm of z.
 
 In general, the mathematical function {{ln}} is multiply defined. The value of {{ln z}} is defined to be the one whose imaginary part lies in the range from {{-pi}} (exclusive) to {{pi}} (inclusive).
@@ -179,8 +217,11 @@ In general, the mathematical function {{ln}} is multiply defined. The value of {
 The specification of two-argument {{atan}} above and the following six procedures are changed from R5RS.
 
 Additions and changes are marked in red.
-==== procedure: make-rectangular x1 x2
-==== procedure: make-polar x3 x4
+
+<procedure>make-rectangular x1 x2</procedure>
+
+<procedure>make-polar x3 x4</procedure>
+
 These procedures are part of every implementation that supports general complex numbers. Suppose {{x1}}, {{x2}}, {{x3}}, and {{x4}} are real numbers and z is a complex number such that
 
     z = x1 + i x2 = x3 e^i x4
@@ -193,15 +234,23 @@ Then
 where {{-pi < x_angle <= pi}} with {{x_angle = x4 + 2pi n}} for some integer {{n}}.
 
 If an argument is not real, then these procedures signal an error.
-==== library procedure: abs x
+
+<procedure>abs x</procedure>
+
 For real argument {{x}}, {{abs}} returns the absolute value of {{x}}; otherwise it signals an error.
 
 #+BEGIN_SRC scheme
 (abs -7)                               ==>  7
 #+END_SRC
-==== procedure: quotient n1 n2
-==== procedure: remainder n1 n2
-==== procedure: modulo n1 n2
+
+<procedure>quotient n1 n2</procedure>
+
+
+<procedure>remainder n1 n2</procedure>
+
+
+<procedure>modulo n1 n2</procedure>
+
 These procedures implement number-theoretic (integer) division. If {{n1}} is not an exact integer, or if {{n2}} is not an exact non-zero integer, an error is signaled. All three procedures return exact integers. If {{n1/n2}} is an integer:
 
 #+BEGIN_SRC scheme
