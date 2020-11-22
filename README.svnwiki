@@ -152,7 +152,7 @@ signals an error otherwise.
 (mod x1 x2)                     ==> x_m
 #+END_SRC
 
-where n_q is x1/x2 rounded towards zero, 0 < |x_r| < |x2|, 0 < |x_m| < |x2|, x_r and x_m differ from {{x1}} by a multiple of {{x2}}, x_r has the same sign as {{x1}}, and x_m has the same sign as {{x2}}.
+where n_q is x1/x2 rounded towards zero, {{0 < |x_r| < |x2|, 0 < |x_m| < |x2|, x_r and x_m}} differ from {{x1}} by a multiple of {{x2}}, {{x_r}} has the same sign as {{x1}}, and {{x_m}} has the same sign as {{x2}}.
 
 From this we can conclude that for {{x2}} not equal to 0,
 
@@ -174,7 +174,7 @@ provided all numbers involved in that computation are exact.
 ==== procedure: ln z
 These procedures are part of every implementation that supports general real numbers. {{Ln}} computes the natural logarithm of z.
 
-In general, the mathematical function ln is multiply defined. The value of ln z is defined to be the one whose imaginary part lies in the range from -pi (exclusive) to pi (inclusive).
+In general, the mathematical function {{ln}} is multiply defined. The value of {{ln z}} is defined to be the one whose imaginary part lies in the range from {{-pi}} (exclusive) to {{pi}} (inclusive).
 ==== Note
 The specification of two-argument {{atan}} above and the following six procedures are changed from R5RS.
 
