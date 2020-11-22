@@ -5,6 +5,7 @@
  (synopsis "SRFI 94: Type-Restricted Numerical Functions")
  (version "0.1")
  (category math)
+ (dependencies srfi-60)
  (test-dependencies test)
  (license "MIT")
  (components (extension srfi-94)))
