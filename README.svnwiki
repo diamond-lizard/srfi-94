@@ -36,64 +36,65 @@ The complex transcendental functions from R5RS are unchanged by this SRFI. They 
 
 Although the language of this SRFI calls for error signaling, that signaling is not limited to run-time. An error can be reported during compilation. Run-time type testing can be skipped if the compiler can prove that arguments are of the correct type and within the correct range. It would be reasonable for SRFI-77's "unsafe mode" to disable run-time checking.
 
-+----------------------------------+
-|         single argument          |
-|----------------------------------|
-|Exact-integer |  Real   | Complex |
-|--------------+---------+---------|
-|              |real-exp |exp      |
-|--------------+---------+---------|
-|              |real-ln  |ln       |
-|--------------+---------+---------|
-|              |real-atan|atan     |
-|--------------+---------+---------|
-|              |real-acos|acos     |
-|--------------+---------+---------|
-|              |real-asin|asin     |
-|--------------+---------+---------|
-|              |real-tan |tan      |
-|--------------+---------+---------|
-|              |real-cos |cos      |
-|--------------+---------+---------|
-|              |real-sin |sin      |
-|--------------+---------+---------|
-|abs           |abs      |magnitude|
-|--------------+---------+---------|
-|integer-sqrt  |real-sqrt|sqrt     |
-+----------------------------------+
-+--------------------------------+
-|         multi-argument         |
-|--------------------------------|
-|Exact-integer |  Real   |Complex|
-|--------------+---------+-------|
-|integer-expt  |real-expt|expt   |
-|--------------+---------+-------|
-|integer-log   |real-log |       |
-|--------------+---------+-------|
-|              |atan     |       |
-|--------------+---------+-------|
-|+             |+        |+      |
-|--------------+---------+-------|
-|-             |-        |-      |
-|--------------+---------+-------|
-|*             |*        |*      |
-|--------------+---------+-------|
-|              |/        |/      |
-|--------------+---------+-------|
-|quotient      |quo      |       |
-|--------------+---------+-------|
-|modulo        |mod      |       |
-|--------------+---------+-------|
-|remainder     |rem      |       |
-|--------------+---------+-------|
-|max           |max      |       |
-|--------------+---------+-------|
-|min           |min      |       |
-+--------------------------------+
+ +----------------------------------+
+ |         single argument          |
+ |----------------------------------|
+ |Exact-integer |  Real   | Complex |
+ |--------------+---------+---------|
+ |              |real-exp |exp      |
+ |--------------+---------+---------|
+ |              |real-ln  |ln       |
+ |--------------+---------+---------|
+ |              |real-atan|atan     |
+ |--------------+---------+---------|
+ |              |real-acos|acos     |
+ |--------------+---------+---------|
+ |              |real-asin|asin     |
+ |--------------+---------+---------|
+ |              |real-tan |tan      |
+ |--------------+---------+---------|
+ |              |real-cos |cos      |
+ |--------------+---------+---------|
+ |              |real-sin |sin      |
+ |--------------+---------+---------|
+ |abs           |abs      |magnitude|
+ |--------------+---------+---------|
+ |integer-sqrt  |real-sqrt|sqrt     |
+ +----------------------------------+
+
+ +--------------------------------+
+ |         multi-argument         |
+ |--------------------------------|
+ |Exact-integer |  Real   |Complex|
+ |--------------+---------+-------|
+ |integer-expt  |real-expt|expt   |
+ |--------------+---------+-------|
+ |integer-log   |real-log |       |
+ |--------------+---------+-------|
+ |              |atan     |       |
+ |--------------+---------+-------|
+ |+             |+        |+      |
+ |--------------+---------+-------|
+ |-             |-        |-      |
+ |--------------+---------+-------|
+ |*             |*        |*      |
+ |--------------+---------+-------|
+ |              |/        |/      |
+ |--------------+---------+-------|
+ |quotient      |quo      |       |
+ |--------------+---------+-------|
+ |modulo        |mod      |       |
+ |--------------+---------+-------|
+ |remainder     |rem      |       |
+ |--------------+---------+-------|
+ |max           |max      |       |
+ |--------------+---------+-------|
+ |min           |min      |       |
+ +--------------------------------+
 
 The {{arithmetic-shift}} and {{integer-length}} procedures of SRFI-60 are related to the base-2 exponential and logarithm respectively, but are not included in the table.
 
-{{mod}} and {{rem}} are the real functions from Common-Lisp. {{quo}} is the analogous division (truncate (/ x1 x2)).
+{{mod}} and {{rem}} are the real functions from Common-Lisp. {{quo}} is the analogous division {{(truncate (/ x1 x2))}}.
 
 Although not a type-restricted function, {{ln}} is added as a synonym for {{log}} because {{log}} is not used consistently to denote the natural logarithm.
 
