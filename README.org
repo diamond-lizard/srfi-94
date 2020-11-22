@@ -175,8 +175,6 @@ In general, the mathematical function ln is multiply defined. The value of ln z 
 *** Note
 The specification of two-argument `atan' above and the following six procedures are changed from R5RS.
 
-Deleted text is [S:marked with a line through it:S].
-
 Additions and changes are marked in red.
 *** procedure: make-rectangular x1 x2
 *** procedure: make-polar x3 x4
@@ -227,8 +225,6 @@ From this we can conclude that for integers n1 and n2 with n2 not equal to 0,
                                   ==>  #t
 #+END_SRC
 
-    [S:provided all numbers involved in that computation are exact.:S]
-
     #+BEGIN_SRC scheme
 (modulo 13 4)                          ==>  1
 (remainder 13 4)                       ==>  1
@@ -242,8 +238,6 @@ From this we can conclude that for integers n1 and n2 with n2 not equal to 0,
 (modulo -13 -4)                        ==>  -1
 (remainder -13 -4)                     ==>  -1
 #+END_SRC
-
-    [S:(remainder -13 -4.0)                   ==>  -1.0  ; inexact:S]
 ** Author
  * Aubrey Jaffer
  * Ported to Chicken Scheme 5 by Sergey Goldgaber
