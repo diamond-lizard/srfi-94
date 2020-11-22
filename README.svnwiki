@@ -118,15 +118,15 @@ For non-negative integer {{n}} returns the largest integer whose square is less 
 ==== procedure: integer-log k1 k2
 Returns the largest exact integer whose power of {{k1}} is less than or equal to {{k2}}. If {{k1}} or {{k2}} is not a positive exact integer, then integer-log signals an error.
 ==== procedure: integer-expt n1 n2
-Returns n1 raised to the power n2 if that result is an exact integer; otherwise signals an error.
+Returns {{n1}} raised to the power {{n2}} if that result is an exact integer; otherwise signals an error.
 
 #+BEGIN_SRC scheme
 (integer-expt 0 n2)
 #+END_SRC
 
-returns 1 for n2 equal to 0;
+returns 1 for {{n2}} equal to 0;
 
-returns 0 for positive integer n2;
+returns 0 for positive integer {{n2}};
 
 signals an error otherwise.
 ==== procedure: real-expt x1 x2
@@ -202,7 +202,7 @@ For real argument {{x}}, {{abs}} returns the absolute value of {{x}}; otherwise 
 ==== procedure: quotient n1 n2
 ==== procedure: remainder n1 n2
 ==== procedure: modulo n1 n2
-These procedures implement number-theoretic (integer) division. [S:n2 should be non-zero.:S] If n1 is not an exact integer, or if n2 is not an exact non-zero integer, an error is signaled. All three procedures return exact integers. If n1/n2 is an integer:
+These procedures implement number-theoretic (integer) division. [S:n2 should be non-zero.:S] If {{n1}} is not an exact integer, or if {{n2}} is not an exact non-zero integer, an error is signaled. All three procedures return exact integers. If {{n1/n2}} is an integer:
 
 #+BEGIN_SRC scheme
 (quotient n1 n2)                   ==> n1/n2
@@ -210,7 +210,7 @@ These procedures implement number-theoretic (integer) division. [S:n2 should be 
 (modulo n1 n2)                     ==> 0
 #+END_SRC
 
-If n1/n2 is not an integer:
+If {{n1/n2}} is not an integer:
 
 #+BEGIN_SRC scheme
 (quotient n1 n2)                   ==> n_q
@@ -218,9 +218,9 @@ If n1/n2 is not an integer:
 (modulo n1 n2)                     ==> x_m
 #+END_SRC
 
-where n_q is n1/n2 rounded towards zero, 0 < |x_r| < |n2|, 0 < |x_m| < |n2|, x_r and x_m differ from n1 by a multiple of n2, x_r has the same sign as n1, and x_m has the same sign as n2.
+where n_q is {{n1/n2}} rounded towards zero, 0 < |x_r| < |n2|, 0 < |x_m| < |n2|, x_r and x_m differ from {{n1}} by a multiple of {{n2}}, x_r has the same sign as {{n1}}, and x_m has the same sign as {{n2}}.
 
-From this we can conclude that for integers n1 and n2 with n2 not equal to 0,
+From this we can conclude that for integers {{n1}} and {{n2}} with {{n2}} not equal to 0,
 
 #+BEGIN_SRC scheme
 (= n1 (+ (* n2 (quotient n1 n2))
