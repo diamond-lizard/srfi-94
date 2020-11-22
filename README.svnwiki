@@ -202,7 +202,7 @@ For real argument {{x}}, {{abs}} returns the absolute value of {{x}}; otherwise 
 ==== procedure: quotient n1 n2
 ==== procedure: remainder n1 n2
 ==== procedure: modulo n1 n2
-These procedures implement number-theoretic (integer) division. [S:n2 should be non-zero.:S] If {{n1}} is not an exact integer, or if {{n2}} is not an exact non-zero integer, an error is signaled. All three procedures return exact integers. If {{n1/n2}} is an integer:
+These procedures implement number-theoretic (integer) division. If {{n1}} is not an exact integer, or if {{n2}} is not an exact non-zero integer, an error is signaled. All three procedures return exact integers. If {{n1/n2}} is an integer:
 
 #+BEGIN_SRC scheme
 (quotient n1 n2)                   ==> n1/n2
