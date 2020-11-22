@@ -227,7 +227,7 @@ From this we can conclude that for integers n1 and n2 with n2 not equal to 0,
                                   ==>  #t
 #+END_SRC
 
-    #+BEGIN_SRC scheme
+#+BEGIN_SRC scheme
 (modulo 13 4)                          ==>  1
 (remainder 13 4)                       ==>  1
 
