@@ -116,7 +116,7 @@ For non-negative real {{x}} the result will be its positive square root; otherwi
 ==== procedure: integer-sqrt n
 For non-negative integer n returns the largest integer whose square is less than or equal to n; otherwise signals an error.
 ==== procedure: integer-log k1 k2
-Returns the largest exact integer whose power of k1 is less than or equal to k2. If k1 or k2 is not a positive exact integer, then integer-log signals an error.
+Returns the largest exact integer whose power of {{k1}} is less than or equal to {{k2}}. If {{k1}} or {{k2}} is not a positive exact integer, then integer-log signals an error.
 ==== procedure: integer-expt n1 n2
 Returns n1 raised to the power n2 if that result is an exact integer; otherwise signals an error.
 
