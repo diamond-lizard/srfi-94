@@ -97,53 +97,39 @@ Although not a type-restricted function, `ln' is added as a synonym for `log' be
 
 `Real-log' returns the logarithm of its second argument using its first argument as the base. `integer-log' is the analogous two-argument logarithm function for integers.
 ** Specification
-procedure: real-exp x
-procedure: real-ln x
-procedure: real-log y x
-procedure: real-sin x
-procedure: real-cos x
-procedure: real-tan x
-procedure: real-asin x
-procedure: real-acos x
-procedure: real-atan x
-procedure: atan y x
-
+*** procedure: real-exp x
+*** procedure: real-ln x
+*** procedure: real-log y x
+*** procedure: real-sin x
+*** procedure: real-cos x
+*** procedure: real-tan x
+*** procedure: real-asin x
+*** procedure: real-acos x
+*** procedure: real-atan x
+*** procedure: atan y x
 These procedures are part of every implementation that supports general real numbers; they compute the usual transcendental functions. `Real-ln' computes the natural logarithm of x (not the base ten logarithm); `real-log' computes the logarithm of x base y, which is (/ (real-ln x) (real-ln y)) If arguments x and y are not both real; or if the correct result would not be real, then these procedures signal an error.
-
-procedure: real-sqrt x
-
+*** procedure: real-sqrt x
 For non-negative real x the result will be its positive square root; otherwise an error will be signaled.
-
-procedure: integer-sqrt n
-
+*** procedure: integer-sqrt n
 For non-negative integer n returns the largest integer whose square is less than or equal to n; otherwise signals an error.
-
-procedure: integer-log k1 k2
-
+*** procedure: integer-log k1 k2
 Returns the largest exact integer whose power of k1 is less than or equal to k2. If k1 or k2 is not a positive exact integer, then integer-log signals an error.
-
-procedure: integer-expt n1 n2
-
+*** procedure: integer-expt n1 n2
 Returns n1 raised to the power n2 if that result is an exact integer; otherwise signals an error.
-
     (integer-expt 0 n2)
     returns 1 for n2 equal to 0;
     returns 0 for positive integer n2;
     signals an error otherwise.
-
-procedure: real-expt x1 x2
-
+*** procedure: real-expt x1 x2
     Returns x1 raised to the power x2 if that result is a real number; otherwise signals an error.
 
     (real-expt 0.0 x2)
     returns 1.0 for x2 equal to 0.0;
     returns 0.0 for positive real x2;
     signals an error otherwise.
-
-procedure: quo x1 x2
-procedure: rem x1 x2
-procedure: mod x1 x2
-
+*** procedure: quo x1 x2
+*** procedure: rem x1 x2
+*** procedure: mod x1 x2
     x2 should be non-zero.
 
         (quo x1 x2)                     ==> n_q
@@ -166,17 +152,16 @@ procedure: mod x1 x2
 
     (quo .666 1/5)                 ==>  3.0
     (mod .666 1/5)                 ==>  65.99999999999995e-3
+*** procedure: ln z
+These procedures are part of every implementation that supports general real numbers. `Ln' computes the natural logarithm of z.
 
-procedure: ln z
-
-    These procedures are part of every implementation that supports general real numbers. `Ln' computes the natural logarithm of z.
-
-    In general, the mathematical function ln is multiply defined. The value of ln z is defined to be the one whose imaginary part lies in the range from -pi (exclusive) to
-    pi (inclusive).
-
+In general, the mathematical function ln is multiply defined. The value of ln z is defined to be the one whose imaginary part lies in the range from -pi (exclusive) to pi (inclusive).
 *** Note
-The specification of two-argument `atan' above and the following six procedures are changed from R5RS. Deleted text is [S:marked with a line through it:S]. Additions and
-changes are marked in red.
+The specification of two-argument `atan' above and the following six procedures are changed from R5RS.
+
+Deleted text is [S:marked with a line through it:S].
+
+Additions and changes are marked in red.
 *** procedure: make-rectangular x1 x2
 *** procedure: make-polar x3 x4
 These procedures are part of every implementation that supports general complex numbers. Suppose x1, x2, x3, and x4 are real numbers and z is a complex number such that
