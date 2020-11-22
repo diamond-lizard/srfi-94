@@ -1,0 +1,10 @@
+;;; srfi-94.egg -*- Scheme -*- vim: ft=scheme:
+
+((author "Aubrey Jaffer")
+ (maintainer "Sergey Goldgaber")
+ (synopsis "SRFI 94: Type-Restricted Numerical Functions")
+ (version "0.1")
+ (category math)
+ (test-dependencies test)
+ (license "MIT")
+ (components (extension srfi-94)))
