@@ -144,7 +144,7 @@ signals an error otherwise.
 ==== procedure: quo x1 x2
 ==== procedure: rem x1 x2
 ==== procedure: mod x1 x2
-x2 should be non-zero.
+{{x2}} should be non-zero.
 
 #+BEGIN_SRC scheme
 (quo x1 x2)                     ==> n_q
@@ -218,7 +218,7 @@ If {{n1/n2}} is not an integer:
 (modulo n1 n2)                     ==> x_m
 #+END_SRC
 
-where n_q is {{n1/n2}} rounded towards zero, 0 < |x_r| < |n2|, 0 < |x_m| < |n2|, x_r and x_m differ from {{n1}} by a multiple of {{n2}}, x_r has the same sign as {{n1}}, and x_m has the same sign as {{n2}}.
+where {{n_q}} is {{n1/n2}} rounded towards zero, {{0 < |x_r| < |n2|, 0 < |x_m| < |n2|, x_r}} and {{x_m}} differ from {{n1}} by a multiple of {{n2}}, {{x_r}} has the same sign as {{n1}}, and {{x_m}} has the same sign as {{n2}}.
 
 From this we can conclude that for integers {{n1}} and {{n2}} with {{n2}} not equal to 0,
 
