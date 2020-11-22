@@ -116,42 +116,58 @@ For non-negative integer n returns the largest integer whose square is less than
 Returns the largest exact integer whose power of k1 is less than or equal to k2. If k1 or k2 is not a positive exact integer, then integer-log signals an error.
 *** procedure: integer-expt n1 n2
 Returns n1 raised to the power n2 if that result is an exact integer; otherwise signals an error.
-    (integer-expt 0 n2)
-    returns 1 for n2 equal to 0;
-    returns 0 for positive integer n2;
-    signals an error otherwise.
-*** procedure: real-expt x1 x2
-    Returns x1 raised to the power x2 if that result is a real number; otherwise signals an error.
 
-    (real-expt 0.0 x2)
-    returns 1.0 for x2 equal to 0.0;
-    returns 0.0 for positive real x2;
-    signals an error otherwise.
+#+BEGIN_SRC scheme
+(integer-expt 0 n2)
+#+END_SRC
+
+returns 1 for n2 equal to 0;
+
+returns 0 for positive integer n2;
+
+signals an error otherwise.
+*** procedure: real-expt x1 x2
+Returns x1 raised to the power x2 if that result is a real number; otherwise signals an error.
+
+#+BEGIN_SRC scheme
+(real-expt 0.0 x2)
+#+END_SRC
+
+returns 1.0 for x2 equal to 0.0;
+
+returns 0.0 for positive real x2;
+
+signals an error otherwise.
 *** procedure: quo x1 x2
 *** procedure: rem x1 x2
 *** procedure: mod x1 x2
-    x2 should be non-zero.
+x2 should be non-zero.
 
-        (quo x1 x2)                     ==> n_q
-        (rem x1 x2)                     ==> x_r
-        (mod x1 x2)                     ==> x_m
+#+BEGIN_SRC scheme
+(quo x1 x2)                     ==> n_q
+(rem x1 x2)                     ==> x_r
+(mod x1 x2)                     ==> x_m
+#+END_SRC
 
-    where n_q is x1/x2 rounded towards zero, 0 < |x_r| < |x2|, 0 < |x_m| < |x2|, x_r and x_m differ from x1 by a multiple of x2, x_r has the same sign as x1, and x_m has
-    the same sign as x2.
+where n_q is x1/x2 rounded towards zero, 0 < |x_r| < |x2|, 0 < |x_m| < |x2|, x_r and x_m differ from x1 by a multiple of x2, x_r has the same sign as x1, and x_m has the same sign as x2.
 
-    From this we can conclude that for x2 not equal to 0,
+From this we can conclude that for x2 not equal to 0,
 
-         (= x1 (+ (* x2 (quo x1 x2))
-               (rem x1 x2)))
-                                           ==>  #t
+#+BEGIN_SRC scheme
+(= x1 (+ (* x2 (quo x1 x2))
+      (rem x1 x2)))
+                                  ==>  #t
+#+END_SRC
 
-    provided all numbers involved in that computation are exact.
+provided all numbers involved in that computation are exact.
 
-    (quo 2/3 1/5)                          ==>  3
-    (mod 2/3 1/5)                  ==>  1/15
+#+BEGIN_SRC scheme
+(quo 2/3 1/5)                          ==>  3
+(mod 2/3 1/5)                  ==>  1/15
 
-    (quo .666 1/5)                 ==>  3.0
-    (mod .666 1/5)                 ==>  65.99999999999995e-3
+(quo .666 1/5)                 ==>  3.0
+(mod .666 1/5)                 ==>  65.99999999999995e-3
+#+END_SRC
 *** procedure: ln z
 These procedures are part of every implementation that supports general real numbers. `Ln' computes the natural logarithm of z.
 
@@ -177,47 +193,55 @@ where -pi < x_angle <= pi with x_angle = x4 + 2pi n for some integer n.
 
 If an argument is not real, then these procedures signal an error.
 *** library procedure: abs x
-
 For real argument x, `abs' returns the absolute value of x; otherwise it signals an error.
 
-    (abs -7)                               ==>  7
+#+BEGIN_SRC scheme
+(abs -7)                               ==>  7
+#+END_SRC
 *** procedure: quotient n1 n2
 *** procedure: remainder n1 n2
 *** procedure: modulo n1 n2
-
 These procedures implement number-theoretic (integer) division. [S:n2 should be non-zero.:S] If n1 is not an exact integer, or if n2 is not an exact non-zero integer, an error is signaled. All three procedures return exact integers. If n1/n2 is an integer:
 
-        (quotient n1 n2)                   ==> n1/n2
-        (remainder n1 n2)                  ==> 0
-        (modulo n1 n2)                     ==> 0
+#+BEGIN_SRC scheme
+(quotient n1 n2)                   ==> n1/n2
+(remainder n1 n2)                  ==> 0
+(modulo n1 n2)                     ==> 0
+#+END_SRC
 
 If n1/n2 is not an integer:
 
-        (quotient n1 n2)                   ==> n_q
-        (remainder n1 n2)                  ==> x_r
-        (modulo n1 n2)                     ==> x_m
+#+BEGIN_SRC scheme
+(quotient n1 n2)                   ==> n_q
+(remainder n1 n2)                  ==> x_r
+(modulo n1 n2)                     ==> x_m
+#+END_SRC
 
 where n_q is n1/n2 rounded towards zero, 0 < |x_r| < |n2|, 0 < |x_m| < |n2|, x_r and x_m differ from n1 by a multiple of n2, x_r has the same sign as n1, and x_m has the same sign as n2.
 
 From this we can conclude that for integers n1 and n2 with n2 not equal to 0,
 
-         (= n1 (+ (* n2 (quotient n1 n2))
-               (remainder n1 n2)))
-                                           ==>  #t
+#+BEGIN_SRC scheme
+(= n1 (+ (* n2 (quotient n1 n2))
+      (remainder n1 n2)))
+                                  ==>  #t
+#+END_SRC
 
     [S:provided all numbers involved in that computation are exact.:S]
 
-    (modulo 13 4)                          ==>  1
-    (remainder 13 4)                       ==>  1
+    #+BEGIN_SRC scheme
+(modulo 13 4)                          ==>  1
+(remainder 13 4)                       ==>  1
 
-    (modulo -13 4)                         ==>  3
-    (remainder -13 4)                      ==>  -1
+(modulo -13 4)                         ==>  3
+(remainder -13 4)                      ==>  -1
 
-    (modulo 13 -4)                         ==>  -3
-    (remainder 13 -4)                      ==>  1
+(modulo 13 -4)                         ==>  -3
+(remainder 13 -4)                      ==>  1
 
-    (modulo -13 -4)                        ==>  -1
-    (remainder -13 -4)                     ==>  -1
+(modulo -13 -4)                        ==>  -1
+(remainder -13 -4)                     ==>  -1
+#+END_SRC
 
     [S:(remainder -13 -4.0)                   ==>  -1.0  ; inexact:S]
 ** Author
