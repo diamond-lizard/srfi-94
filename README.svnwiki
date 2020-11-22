@@ -30,7 +30,7 @@ The criterion is exact-integer instead of just integer so that the results of in
 
 Arithmetic operations on mixtures of integer, real, and complex numbers are well defined and very common in use. This SRFI does not alter R5RS behavior of arithmetic operations with mixed type inputs.
 
-This SRFI introduces some integer-only and real-only variants of the transcendental functions of R5RS. Those type-restricted functions are mandated to signal an error if called with arguments or producing results which are not in the designated number system. Thus (real-sqrt -1) must signal an error even though -1 is an exact real. Following SRFI-70, #+inf.0 and #-inf.0 are real; NaNs are not. None of these infinities is an integer.
+This SRFI introduces some integer-only and real-only variants of the transcendental functions of R5RS. Those type-restricted functions are mandated to signal an error if called with arguments or producing results which are not in the designated number system. Thus {{(real-sqrt -1)}} must signal an error even though -1 is an exact real. Following SRFI-70, {{#+inf.0}} and {{#-inf.0}} are real; {{NaN}}s are not. None of these infinities is an integer.
 
 The complex transcendental functions from R5RS are unchanged by this SRFI. They accept complex (hence also integer and real) arguments. The functions {{abs}}, {{make-rectangular}}, and {{make-polar}}; and {{atan}} when called with two arguments are changed to require them to signal an error when passed a non-real number. Note that integers are real numbers.
 
