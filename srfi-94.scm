@@ -11,5 +11,32 @@
 
   (register-feature! 'srfi-94)
 
+  (export
+    real-exp
+    real-ln
+    real-log
+    real-sin
+    real-cos
+    real-tan
+    real-asin
+    real-acos
+    real-atan
+    atan
+    real-sqrt
+    integer-sqrt
+    integer-log
+    integer-expt
+    real-expt
+    quo
+    rem
+    mod
+    ln
+    make-rectangular
+    make-polar
+    abs
+    quotient
+    remainder
+    modulo)
+
   (include "srfi-94-impl.scm"))
 
