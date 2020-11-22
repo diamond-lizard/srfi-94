@@ -1,5 +1,11 @@
 (module srfi-94 ()
-  (import scheme)
+  (import (except scheme
+                  remainder
+                  modulo
+                  abs
+                  make-polar
+                  make-rectangular
+                  quotient))
   (import (chicken base))
   (import (chicken module))
   (import (chicken platform))
